@@ -26,10 +26,10 @@ module "vpc" {
   version = "~> 19.0"
   cluster_name    = "flux-cluster" #EKS cluster name
   cluster_version = "1.24" #EKS cluster version
-  cluster_endpoint_private_access = false #Enabling cluster endpoint private access
-  cluster_endpoint_public_access  = true  #disabling endpoint public access
+  cluster_endpoint_private_access = true #Enabling cluster endpoint private access
+  cluster_endpoint_public_access  = false  #disabling endpoint public access
   vpc_id     = module.vpc.vpc_id
-  subnet_ids = module.vpc.public_subnets
+  subnet_ids = module.vpc.private_subnets
   create_iam_role = true #Creating cluster role
   iam_role_name = "flux-eks-role" #name for cluster role
   cluster_enabled_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
@@ -89,7 +89,7 @@ module "eks_managed_node_group" {
   cluster_name    = module.eks.cluster_name 
   cluster_version = "1.24"
 
-  subnet_ids = module.vpc.public_subnets
+  subnet_ids = module.vpc.private_subnets
   vpc_security_group_ids = [module.eks.node_security_group_id]
   min_size     = 2
   max_size     = 2
