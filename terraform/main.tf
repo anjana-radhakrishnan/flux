@@ -1,6 +1,6 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
-  version = "5.17.0"
+  version = "5.83.0"
 
   name = "flux-vpc"
   cidr = "10.0.0.0/16"
