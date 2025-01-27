@@ -34,7 +34,7 @@ module "vpc" {
   iam_role_name = "flux-eks-role" #name for cluster role
   cluster_enabled_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 
-  cluster_service_cidr = "10.100.0.0/16"
+
 
 # aws-auth configmap to add role-based access control (RBAC) access to IAM users and roles
   create_aws_auth_configmap = false
@@ -88,6 +88,8 @@ module "eks_managed_node_group" {
   name            = "flux-nodegroup"
   cluster_name    = module.eks.cluster_name 
   cluster_version = "1.24"
+
+  cluster_service_cidr = "10.100.0.0/16"
 
   subnet_ids = module.vpc.private_subnets
   vpc_security_group_ids = [module.eks.node_security_group_id]
