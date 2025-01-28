@@ -32,13 +32,13 @@ jobs:
        id: init
        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
  
-     - name: Terraform plan
-       id: plan
-       run: terraform plan
+     # - name: Terraform plan
+     #   id: plan
+     #   run: terraform plan
     
-     - name: Terraform apply
-       id: apply
-       run: terraform apply -auto-approve
+     # - name: Terraform apply
+     #   id: apply
+     #   run: terraform apply -auto-approve
 
      - name: Terraform destroy
        id: destroy
