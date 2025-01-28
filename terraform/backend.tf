@@ -1,7 +1,8 @@
 terraform {
   backend "s3" {
-    bucket         = "fluxcd-bucket-poc"       # Replace with your S3 bucket name 
-    region         = "us-east-1"              # Replace with your AWS region
+    bucket         = "fluxcd-bucket-poc"     # Update it 
+    key            = "poc" # Update it
+    region         = "us-east-1"                            # Update it
     encrypt        = true
   }
-}
+
