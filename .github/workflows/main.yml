@@ -28,9 +28,9 @@ jobs:
        with:
          terraform_version: 1.3.2
     
-     # - name: Terraform init
-     #   id: init
-     #   run: terraform init  
+     - name: Terraform init
+       id: init
+       run: terraform init  
  
      # - name: Terraform plan
      #   id: plan
