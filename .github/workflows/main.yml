@@ -28,17 +28,17 @@ jobs:
        with:
          terraform_version: 1.3.2
     
-     - name: Terraform init
-       id: init
-       run: terraform init  
+     # - name: Terraform init
+     #   id: init
+     #   run: terraform init  
  
-     - name: Terraform plan
-       id: plan
-       run: terraform plan
+     # - name: Terraform plan
+     #   id: plan
+     #   run: terraform plan
     
-     - name: Terraform apply
-       id: apply
-       run: terraform apply -auto-approve
+     # - name: Terraform apply
+     #   id: apply
+     #   run: terraform apply -auto-approve
 
      - name: Terraform destroy
        id: destroy
