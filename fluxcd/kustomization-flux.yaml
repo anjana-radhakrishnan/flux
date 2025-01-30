@@ -1,0 +1,17 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: fluxcd-apps
+  namespace: fluxcd
+spec:
+  interval: 3m
+  path: ./fluxcd-cluster/demo
+  prune: true
+  sourceRef:
+    kind: GitHubRepository
+    name: fluxcd
+  validation:
+  client:
+    namespace: false
+    name: fluxcd-apps
+    refTo: 
